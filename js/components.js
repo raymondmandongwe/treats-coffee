@@ -107,6 +107,8 @@ const Components = (() => {
     if (sb) sb.innerHTML = shippingBar();
     if (navEl) navEl.innerHTML = nav();
     if (footerEl) footerEl.innerHTML = footer();
+    // initNav runs before this inject(), so the hamburger didn't exist yet — re-run it now
+    if (typeof initNav === 'function') initNav();
   }
 
   return { inject };

@@ -5,6 +5,9 @@
 /* ── Hero ── */
 .cafe-hero {
   background: var(--espresso);
+  background-image: url('../images/cafe-hero.jpg');
+  background-size: cover;
+  background-position: center 40%;
   padding: 100px 40px;
   position: relative;
   overflow: hidden;
@@ -12,10 +15,23 @@
 .cafe-hero-bg {
   position: absolute;
   inset: 0;
-  background:
-    radial-gradient(ellipse 60% 80% at 80% 50%, rgba(60,35,20,0.8) 0%, transparent 70%),
-    radial-gradient(ellipse 40% 60% at 10% 20%, rgba(201,169,110,0.06) 0%, transparent 60%);
+  background: linear-gradient(to right, rgba(26,14,8,0.88) 30%, rgba(26,14,8,0.55) 100%);
 }
+
+/* ── Atmosphere Gallery ── */
+.cafe-gallery { overflow: hidden; line-height: 0; }
+.gallery-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  height: 260px;
+}
+.gallery-item {
+  background-color: var(--mahogany);
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.5s ease;
+}
+.gallery-item:hover { transform: scale(1.04); }
 .cafe-hero-content { position: relative; z-index: 2; }
 .cafe-hero h1 { color: var(--cream); margin-bottom: 18px; }
 .cafe-hero h1 em { color: var(--gold); font-style: italic; }
@@ -120,8 +136,23 @@
 .menu-item span:first-child { color: var(--walnut); }
 .menu-item span:last-child { color: var(--espresso); font-weight: 500; flex-shrink: 0; margin-left: 12px; }
 
+.menu-note {
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 500;
+  margin-left: 6px;
+  opacity: 0.85;
+}
+.menu-item--highlight { background: rgba(201,169,110,0.05); margin: 0 -8px; padding: 10px 8px; }
+
 @media (max-width: 900px) {
   .cafe-hero { padding: 72px 24px; }
   .menu-grid { grid-template-columns: 1fr; }
   .map-embed-area { height: 300px; }
+  .gallery-strip { grid-template-columns: repeat(2, 1fr); height: 360px; }
+}
+@media (max-width: 600px) {
+  .gallery-strip { grid-template-columns: repeat(2, 1fr); height: 280px; }
 }
