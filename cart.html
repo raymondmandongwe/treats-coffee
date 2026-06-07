@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Your cart — Treat Coffee Roasters">
+  <title>Cart — Treat Coffee Roasters</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/cart.css">
+</head>
+<body>
+  <div id="shippingBar"></div>
+  <div id="siteNav"></div>
+
+  <main>
+    <header class="cart-header">
+      <div class="container">
+        <h1>Your Cart</h1>
+      </div>
+    </header>
+
+    <section class="cart-section">
+      <div class="container">
+        <div class="cart-layout">
+          <!-- ── Cart Items ── -->
+          <div>
+            <div id="cartItems"></div>
+            <div id="emptyCart" style="display:none;" class="empty-cart">
+              <p>Your cart is empty.</p>
+              <a href="shop.html" class="btn btn-dark" style="margin-top:20px;">Browse the Shop</a>
+            </div>
+          </div>
+
+          <!-- ── Order Summary ── -->
+          <aside class="cart-summary" id="cartSummary" aria-label="Order summary">
+            <h2 class="summary-title">Order Summary</h2>
+            <div class="summary-row">
+              <span>Subtotal</span>
+              <span id="summarySubtotal">R0</span>
+            </div>
+            <div class="summary-row" id="shippingRow">
+              <span>Shipping</span>
+              <span id="summaryShipping">R99</span>
+            </div>
+            <div class="summary-row free-shipping-note" id="freeShippingNote" style="display:none;">
+              <span style="color:var(--success);font-size:13px;">✓ Free shipping applied</span>
+              <span id="summaryShippingFree" style="color:var(--success);">R0</span>
+            </div>
+            <div class="summary-divider"></div>
+            <div class="summary-row summary-total">
+              <span>Total</span>
+              <span id="summaryTotal">R99</span>
+            </div>
+            <div class="free-shipping-bar" id="freeShippingBar">
+              <p id="freeShippingProgress"></p>
+              <div class="fsb-track"><div class="fsb-fill" id="fsbFill"></div></div>
+            </div>
+            <button class="btn btn-gold" style="width:100%;justify-content:center;margin-top:20px;" id="checkoutBtn">
+              Proceed to Checkout
+            </button>
+            <p style="font-size:12px;color:var(--caramel);text-align:center;margin-top:12px;">
+              Secure checkout · All major cards accepted
+            </p>
+            <a href="shop.html" style="display:block;text-align:center;margin-top:10px;font-size:12px;color:var(--caramel);text-decoration:underline;">Continue Shopping</a>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="siteFooter"></div>
+
+  <script src="js/products.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/components.js"></script>
+  <script>
+    const SHIPPING = 99;
+    const FREE_THRESHOLD = 600;
+
+    function renderCart() {
+      const items = Cart.getAll();
+      const container = document.getElementById('cartItems');
+      const emptyMsg = document.getElementById('emptyCart');
+      const summary = document.getElementById('cartSummary');
+
+      if (items.length === 0) {
+        container.innerHTML = '';
+        emptyMsg.style.display = 'flex';
+        summary.style.display = 'none';
+        return;
+      }
+
+      emptyMsg.style.display = 'none';
+      summary.style.display = 'block';
+
+      container.innerHTML = `
+        <div class="cart-items-header">
+          <span>Product</span><span>Qty</span><span>Price</span>
+        </div>` +
+        items.map(item => `
+          <div class="cart-item" data-name="${item.name}">
+            <div class="cart-item-info">
+              <div class="cart-item-name">${item.name}</div>
+              <div class="cart-item-weight">${item.weight || '250g'}</div>
+            </div>
+            <div class="cart-item-qty">
+              <button onclick="changeQty('${item.name}', ${item.qty - 1})" aria-label="Decrease quantity" class="qty-btn">−</button>
+              <span class="qty-num" aria-live="polite">${item.qty}</span>
+              <button onclick="changeQty('${item.name}', ${item.qty + 1})" aria-label="Increase quantity" class="qty-btn">+</button>
+            </div>
+            <div class="cart-item-price">
+              R${item.price * item.qty}
+              <button onclick="Cart.remove('${item.name}');renderCart();" class="remove-btn" aria-label="Remove ${item.name}">×</button>
+            </div>
+          </div>`).join('');
+
+      updateSummary();
+    }
+
+    function changeQty(name, newQty) {
+      if (newQty <= 0) Cart.remove(name);
+      else Cart.updateQty(name, newQty);
+      renderCart();
+    }
+
+    function updateSummary() {
+      const subtotal = Cart.getTotal();
+      const freeShipping = subtotal >= FREE_THRESHOLD;
+      const shipping = freeShipping ? 0 : SHIPPING;
+      const total = subtotal + shipping;
+
+      document.getElementById('summarySubtotal').textContent = `R${subtotal}`;
+      document.getElementById('summaryTotal').textContent = `R${total}`;
+
+      if (freeShipping) {
+        document.getElementById('shippingRow').style.display = 'none';
+        document.getElementById('freeShippingNote').style.display = 'flex';
+        document.getElementById('freeShippingBar').style.display = 'none';
+      } else {
+        document.getElementById('shippingRow').style.display = 'flex';
+        document.getElementById('summaryShipping').textContent = `R${SHIPPING}`;
+        document.getElementById('freeShippingNote').style.display = 'none';
+        const remaining = FREE_THRESHOLD - subtotal;
+        const pct = Math.min((subtotal / FREE_THRESHOLD) * 100, 100);
+        document.getElementById('freeShippingBar').style.display = 'block';
+        document.getElementById('freeShippingProgress').textContent = `Spend R${remaining} more for free shipping`;
+        document.getElementById('fsbFill').style.width = pct + '%';
+      }
+    }
+
+    document.getElementById('checkoutBtn').addEventListener('click', () => {
+      alert('In production: connect this to WooCommerce or your payment gateway (PayFast, PayGate, etc.)');
+    });
+
+    document.addEventListener('DOMContentLoaded', renderCart);
+  </script>
+</body>
+</html>

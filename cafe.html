@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Visit Treat Coffee Roasters café in Durbanville. Fresh coffee, breakfast, pastries, light lunch, wine and beer. Find our address, hours and menu.">
+  <title>Our Café — Treat Coffee Roasters</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/cafe.css">
+</head>
+<body>
+  <div id="shippingBar"></div>
+  <div id="siteNav"></div>
+
+  <main>
+
+    <!-- ── Hero ── -->
+    <header class="cafe-hero">
+      <div class="cafe-hero-bg" aria-hidden="true"></div>
+      <div class="cafe-hero-content container">
+        <div class="section-label" style="color:var(--gold)">Durbanville, Cape Town</div>
+        <h1>Visit Our<br><em>Flagship Café</em></h1>
+        <p class="hero-sub" style="max-width:480px;">Fresh coffee, breakfast, pastries, light lunch, wine and craft beer — all under one roof.</p>
+        <div class="hero-actions">
+          <a href="#menu" class="btn btn-gold">View Menu</a>
+          <a href="#directions" class="btn btn-outline-light">Get Directions</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- ── Cafe Info ── -->
+    <section class="cafe-info-section">
+      <div class="container">
+        <div class="cafe-info-grid">
+          <div class="cafe-info-card">
+            <div class="info-icon" aria-hidden="true">🕐</div>
+            <h3>Opening Hours</h3>
+            <table class="hours-table" aria-label="Café opening hours">
+              <tbody>
+                <tr><td>Monday – Friday</td><td>7:00am – 4:00pm</td></tr>
+                <tr><td>Saturday</td><td>8:00am – 3:00pm</td></tr>
+                <tr><td>Sunday</td><td>8:00am – 2:00pm</td></tr>
+                <tr class="closed-row"><td>Public Holidays</td><td>Check social media</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="cafe-info-card">
+            <div class="info-icon" aria-hidden="true">📍</div>
+            <h3>Find Us</h3>
+            <address style="font-style:normal;">
+              <p style="margin-bottom:8px;font-size:15px;color:var(--espresso);font-weight:400;">Durbanville<br>Cape Town, 7550<br>Western Cape</p>
+              <p style="font-size:13px;color:var(--caramel);margin-bottom:20px;">Free parking available on-site</p>
+            </address>
+            <a href="https://maps.google.com/?q=Treat+Coffee+Roasters+Durbanville" target="_blank" rel="noopener" class="btn btn-dark" style="font-size:11px;">Open in Google Maps</a>
+          </div>
+          <div class="cafe-info-card">
+            <div class="info-icon" aria-hidden="true">☕</div>
+            <h3>Current on Bar</h3>
+            <p style="font-size:14px;color:var(--caramel);margin-bottom:16px;font-weight:300;">We rotate our featured origin regularly. Ask our baristas what's on.</p>
+            <div class="on-bar-item">
+              <span class="on-bar-label">Espresso Blend</span>
+              <span class="on-bar-name">The Treat Blend</span>
+            </div>
+            <div class="on-bar-item">
+              <span class="on-bar-label">Filter</span>
+              <span class="on-bar-name">Ethiopian Yirgacheffe</span>
+            </div>
+            <div class="on-bar-item">
+              <span class="on-bar-label">Decaf</span>
+              <span class="on-bar-name">Swiss Water Process</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Map ── -->
+    <section class="map-section" id="directions" aria-labelledby="map-heading">
+      <div class="container">
+        <div class="section-label">Getting Here</div>
+        <h2 class="section-title" id="map-heading">Directions</h2>
+        <p class="section-sub">Located in Durbanville, with easy access and free parking.</p>
+      </div>
+      <!-- Replace the div below with a real Google Maps embed iframe -->
+      <div class="map-embed-area" role="img" aria-label="Map showing Treat Coffee Roasters location in Durbanville">
+        <!--
+          REPLACE THIS COMMENT BLOCK WITH YOUR GOOGLE MAPS EMBED:
+
+          1. Go to maps.google.com
+          2. Search for your address
+          3. Click Share → Embed a map
+          4. Copy the <iframe> code and paste it here
+
+          Example:
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!..."
+            width="100%" height="420" style="border:0;" allowfullscreen
+            loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            title="Treat Coffee Roasters location">
+          </iframe>
+        -->
+        <div class="map-placeholder-inner">
+          <div style="font-size:48px;margin-bottom:16px;opacity:0.3;">🗺</div>
+          <p style="color:rgba(245,237,227,0.4);font-size:14px;">Google Maps embed goes here</p>
+          <p style="color:rgba(245,237,227,0.25);font-size:12px;margin-top:8px;">See instructions in the HTML comment above</p>
+          <a href="https://maps.google.com/?q=Durbanville+Cape+Town" target="_blank" rel="noopener" class="btn btn-outline-light" style="margin-top:24px;font-size:11px;">Open Google Maps</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Menu ── -->
+    <section class="menu-section" id="menu" aria-labelledby="menu-heading">
+      <div class="container">
+        <div class="section-label">What's On</div>
+        <h2 class="section-title" id="menu-heading">Our Menu</h2>
+        <p class="section-sub">Fresh, seasonal, and made with care. Something for every time of day.</p>
+        <div class="menu-grid">
+          <div class="menu-category">
+            <h3 class="menu-cat-title">Coffee &amp; Drinks</h3>
+            <div class="menu-items">
+              <div class="menu-item"><span>Espresso</span><span>R28</span></div>
+              <div class="menu-item"><span>Flat White</span><span>R38</span></div>
+              <div class="menu-item"><span>Cappuccino</span><span>R38</span></div>
+              <div class="menu-item"><span>Latte</span><span>R40</span></div>
+              <div class="menu-item"><span>Pour-over (filter)</span><span>R45</span></div>
+              <div class="menu-item"><span>Cold Brew</span><span>R48</span></div>
+              <div class="menu-item"><span>Decaf (any method)</span><span>+R5</span></div>
+              <div class="menu-item"><span>Oat / Almond Milk</span><span>+R8</span></div>
+            </div>
+          </div>
+          <div class="menu-category">
+            <h3 class="menu-cat-title">Breakfast</h3>
+            <div class="menu-items">
+              <div class="menu-item"><span>Eggs on Toast (any style)</span><span>R75</span></div>
+              <div class="menu-item"><span>Avocado &amp; Poached Eggs</span><span>R95</span></div>
+              <div class="menu-item"><span>Granola &amp; Seasonal Fruit</span><span>R70</span></div>
+              <div class="menu-item"><span>Pancakes with Maple Syrup</span><span>R80</span></div>
+              <div class="menu-item"><span>Full Treat Breakfast</span><span>R120</span></div>
+            </div>
+          </div>
+          <div class="menu-category">
+            <h3 class="menu-cat-title">Pastries &amp; Snacks</h3>
+            <div class="menu-items">
+              <div class="menu-item"><span>Croissant (plain)</span><span>R30</span></div>
+              <div class="menu-item"><span>Almond Croissant</span><span>R38</span></div>
+              <div class="menu-item"><span>Banana Bread (slice)</span><span>R32</span></div>
+              <div class="menu-item"><span>Seasonal Tart</span><span>R40</span></div>
+              <div class="menu-item"><span>Cookie of the Day</span><span>R20</span></div>
+            </div>
+          </div>
+          <div class="menu-category">
+            <h3 class="menu-cat-title">Lunch</h3>
+            <div class="menu-items">
+              <div class="menu-item"><span>Toasted Sandwich</span><span>R80</span></div>
+              <div class="menu-item"><span>Seasonal Salad Bowl</span><span>R95</span></div>
+              <div class="menu-item"><span>Soup &amp; Bread</span><span>R80</span></div>
+              <div class="menu-item"><span>Treat Board (cheese &amp; charcuterie)</span><span>R130</span></div>
+            </div>
+          </div>
+          <div class="menu-category">
+            <h3 class="menu-cat-title">Wine &amp; Beer</h3>
+            <div class="menu-items">
+              <div class="menu-item"><span>Wine (glass)</span><span>From R55</span></div>
+              <div class="menu-item"><span>Craft Beer</span><span>From R45</span></div>
+              <div class="menu-item"><span>Sparkling Water</span><span>R22</span></div>
+              <div class="menu-item"><span>Fresh Juice</span><span>R38</span></div>
+            </div>
+          </div>
+        </div>
+        <p style="font-size:13px;color:var(--caramel);margin-top:32px;font-style:italic;">
+          Menu items and prices subject to change. Allergen info available on request.
+          <a href="#" style="color:var(--walnut);text-decoration:underline;" onclick="window.print()">Print Menu</a>
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="siteFooter"></div>
+
+  <script src="js/main.js"></script>
+  <script src="js/components.js"></script>
+</body>
+</html>

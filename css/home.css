@@ -1,0 +1,311 @@
+/* ============================================
+   TREAT COFFEE ROASTERS — Home Page Styles
+   ============================================ */
+
+/* ── Reveal Animation ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Hero ── */
+.hero {
+  background: var(--espresso);
+  min-height: 560px;
+  display: flex;
+  align-items: center;
+  padding: 80px 40px;
+  position: relative;
+  overflow: hidden;
+  max-width: 100%;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 55% 85% at 85% 50%, rgba(92,45,18,0.65) 0%, transparent 65%),
+    radial-gradient(ellipse 30% 50% at 15% 90%, rgba(201,169,110,0.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 560px;
+}
+.hero h1 {
+  color: var(--cream);
+  margin-bottom: 18px;
+}
+.hero h1 em {
+  color: var(--gold);
+  font-style: italic;
+}
+.hero-sub {
+  color: rgba(245,237,227,0.65);
+  font-size: 16px;
+  font-weight: 300;
+  margin-bottom: 36px;
+  max-width: 440px;
+}
+.hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+.hero-visual {
+  position: absolute;
+  right: 80px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.hero-ring {
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  border: 1px solid rgba(201,169,110,0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.hero-ring::before {
+  content: '';
+  position: absolute;
+  width: 210px;
+  height: 210px;
+  border-radius: 50%;
+  border: 1px solid rgba(201,169,110,0.1);
+}
+
+/* ── Stats Strip ── */
+.stats-strip {
+  background: var(--roast);
+  border-top: 1px solid rgba(201,169,110,0.15);
+  border-bottom: 1px solid rgba(201,169,110,0.15);
+}
+.stats-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.stat-item {
+  flex: 1;
+  text-align: center;
+  padding: 28px 16px;
+}
+.stat-num {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 28px;
+  color: var(--gold);
+  margin-bottom: 4px;
+}
+.stat-label {
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba(245,237,227,0.5);
+  font-weight: 400;
+}
+.stat-div {
+  width: 1px;
+  height: 40px;
+  background: rgba(201,169,110,0.15);
+  flex-shrink: 0;
+}
+
+/* ── Products Section ── */
+.products-section { padding: 80px 0; background: var(--milk); }
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+  margin-bottom: 40px;
+}
+.products-cta { text-align: center; }
+
+/* ── Finder ── */
+.finder-section {
+  background: var(--espresso);
+  padding: 80px 40px;
+}
+.finder-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+.finder-card {
+  border: 1px solid rgba(201,169,110,0.2);
+  padding: 32px 20px;
+  text-align: center;
+  display: block;
+  transition: border-color var(--transition), background var(--transition), transform var(--transition);
+}
+.finder-card:hover {
+  border-color: var(--gold);
+  background: rgba(201,169,110,0.07);
+  transform: translateY(-3px);
+}
+.finder-icon {
+  display: block;
+  font-size: 24px;
+  color: var(--gold);
+  margin-bottom: 14px;
+}
+.finder-card h3 {
+  font-family: var(--font-serif);
+  font-size: 17px;
+  color: var(--cream);
+  margin-bottom: 8px;
+}
+.finder-card p {
+  font-size: 13px;
+  color: rgba(245,237,227,0.5);
+  line-height: 1.6;
+  font-weight: 300;
+}
+
+/* ── Café Preview ── */
+.cafe-preview {
+  background: var(--roast);
+  padding: 80px 40px;
+}
+.cafe-preview-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+.cafe-detail-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 20px;
+  color: rgba(245,237,227,0.8);
+  font-size: 14px;
+}
+.cafe-detail-icon { font-size: 18px; flex-shrink: 0; }
+.cafe-detail-row strong { color: var(--cream); display: block; margin-bottom: 2px; }
+.cafe-actions-row { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 32px; }
+.cafe-visual-block {
+  background: var(--mahogany);
+  border: 1px solid rgba(201,169,110,0.15);
+  height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cafe-visual-inner { text-align: center; }
+
+/* ── Wholesale Teaser ── */
+.wholesale-teaser { padding: 80px 0; background: var(--gray-light); }
+.wholesale-teaser-inner {
+  display: flex;
+  align-items: flex-start;
+  gap: 60px;
+}
+.wholesale-teaser-benefits {
+  flex-shrink: 0;
+  padding-top: 8px;
+}
+.wt-benefit {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: var(--walnut);
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(92,51,23,0.1);
+}
+.wt-icon { color: var(--gold); font-size: 10px; flex-shrink: 0; }
+
+/* ── Reviews ── */
+.reviews-section { padding: 80px 0; background: var(--milk); }
+.google-rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  background: var(--white);
+  border: 1px solid rgba(92,51,23,0.1);
+  padding: 18px 28px;
+  margin-bottom: 40px;
+  width: 100%;
+}
+.google-score {
+  font-size: 36px;
+  font-weight: 300;
+  color: var(--espresso);
+  font-family: var(--font-serif);
+}
+.google-stars { color: var(--gold); font-size: 18px; }
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  margin-bottom: 40px;
+}
+.review-card {
+  background: var(--white);
+  border: 1px solid rgba(92,51,23,0.08);
+  padding: 26px;
+}
+.review-stars { color: var(--gold); font-size: 14px; margin-bottom: 12px; }
+.review-text {
+  font-size: 14px;
+  color: var(--walnut);
+  line-height: 1.7;
+  margin-bottom: 16px;
+  font-style: italic;
+  font-weight: 300;
+}
+.review-author {
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--caramel);
+  font-weight: 500;
+}
+.brewed-at { padding-top: 36px; border-top: 1px solid rgba(92,51,23,0.08); }
+.brewed-label {
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--caramel);
+  margin-bottom: 16px;
+}
+.brewed-list {
+  display: flex;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+.brewed-list span {
+  font-family: var(--font-serif);
+  font-size: 15px;
+  color: var(--walnut);
+  opacity: 0.65;
+  font-style: italic;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .hero { min-height: auto; padding: 64px 24px; }
+  .hero-visual { display: none; }
+  .stats-inner { flex-wrap: wrap; }
+  .stat-item { min-width: 50%; }
+  .cafe-preview-inner { grid-template-columns: 1fr; }
+  .cafe-visual-block { height: 200px; }
+  .wholesale-teaser-inner { flex-direction: column; gap: 32px; }
+  .finder-section { padding: 60px 24px; }
+}
+
+@media (max-width: 600px) {
+  .hero { padding: 48px 20px; }
+  .products-grid { grid-template-columns: 1fr; }
+  .finder-grid { grid-template-columns: 1fr 1fr; }
+  .reviews-grid { grid-template-columns: 1fr; }
+  .google-rating { flex-wrap: wrap; }
+}

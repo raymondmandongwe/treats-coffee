@@ -1,0 +1,121 @@
+/* ============================================
+   TREAT COFFEE ROASTERS — FAQ CSS
+   ============================================ */
+
+.faq-hero {
+  background: var(--espresso);
+  padding: 72px 40px;
+}
+.faq-hero h1 { color: var(--cream); margin-bottom: 12px; }
+.faq-hero .hero-sub { color: rgba(245,237,227,0.55); font-weight: 300; }
+
+.faq-section { padding: 64px 0 80px; }
+
+.faq-layout {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 64px;
+  align-items: start;
+}
+
+/* ── Nav ── */
+.faq-nav {
+  position: sticky;
+  top: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.faq-nav-link {
+  display: block;
+  padding: 10px 16px;
+  font-size: 13px;
+  color: var(--caramel);
+  border-left: 2px solid transparent;
+  transition: color var(--transition), border-color var(--transition);
+}
+.faq-nav-link:hover { color: var(--espresso); }
+.faq-nav-link.active { color: var(--espresso); border-left-color: var(--gold); font-weight: 500; }
+
+/* ── Groups ── */
+.faq-group { margin-bottom: 56px; }
+.faq-group-title {
+  font-family: var(--font-serif);
+  font-size: 26px;
+  color: var(--espresso);
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(92,51,23,0.12);
+  margin-bottom: 8px;
+}
+
+/* ── Items ── */
+.faq-item {
+  border-bottom: 1px solid rgba(92,51,23,0.07);
+}
+.faq-item:last-of-type { border-bottom: none; }
+
+.faq-question {
+  list-style: none;
+  padding: 18px 0;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--espresso);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  user-select: none;
+}
+.faq-question::-webkit-details-marker { display: none; }
+.faq-question::after {
+  content: '+';
+  font-size: 20px;
+  color: var(--gold);
+  font-weight: 300;
+  flex-shrink: 0;
+  line-height: 1;
+  transition: transform var(--transition);
+}
+details[open] .faq-question::after {
+  content: '−';
+}
+
+.faq-answer {
+  padding: 0 0 20px;
+  max-width: 640px;
+}
+.faq-answer p {
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--walnut);
+  margin-bottom: 10px;
+  font-weight: 300;
+}
+.faq-answer p:last-child { margin-bottom: 0; }
+.faq-answer a { color: var(--walnut); text-decoration: underline; }
+.faq-answer a:hover { color: var(--espresso); }
+.faq-answer strong { color: var(--espresso); font-weight: 500; }
+
+/* ── Contact Block ── */
+.faq-contact-block {
+  background: var(--espresso);
+  padding: 36px 32px;
+  margin-top: 16px;
+}
+.faq-contact-block h3 {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  color: var(--cream);
+  margin-bottom: 8px;
+}
+.faq-contact-block p { font-size: 14px; color: rgba(245,237,227,0.55); font-weight: 300; }
+
+@media (max-width: 900px) {
+  .faq-hero { padding: 56px 24px; }
+  .faq-layout { grid-template-columns: 1fr; gap: 0; }
+  .faq-nav { position: static; flex-direction: row; flex-wrap: wrap; margin-bottom: 32px; gap: 0; border-bottom: 1px solid rgba(92,51,23,0.1); }
+  .faq-nav-link { border-left: none; border-bottom: 2px solid transparent; padding: 10px 14px; }
+  .faq-nav-link.active { border-left-color: transparent; border-bottom-color: var(--gold); }
+  .faq-section { padding: 40px 0 64px; }
+}

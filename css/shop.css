@@ -1,0 +1,141 @@
+/* ============================================
+   TREAT COFFEE ROASTERS — Shop Page Styles
+   ============================================ */
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px;
+  overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap;
+}
+
+/* ── Page Header ── */
+.page-header {
+  background: var(--espresso);
+  padding: 64px 40px 52px;
+}
+.page-title {
+  color: var(--cream);
+  margin-bottom: 10px;
+}
+.page-subtitle {
+  color: rgba(245,237,227,0.55);
+  font-size: 15px;
+  font-weight: 300;
+  max-width: 480px;
+}
+
+/* ── Filters Bar ── */
+.shop-filters-bar {
+  background: var(--white);
+  border-bottom: 1px solid rgba(92,51,23,0.1);
+  position: sticky;
+  top: 70px;
+  z-index: 50;
+}
+.filters-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.filter-group { display: flex; gap: 0; }
+.filter-btn {
+  padding: 16px 22px;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--caramel);
+  border: none;
+  background: none;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: color var(--transition), border-color var(--transition);
+}
+.filter-btn:hover { color: var(--espresso); }
+.filter-btn.active {
+  color: var(--espresso);
+  border-bottom-color: var(--gold);
+  font-weight: 500;
+}
+.sort-group select {
+  border: 1px solid rgba(92,51,23,0.15);
+  background: none;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  color: var(--caramel);
+  padding: 8px 14px;
+  cursor: pointer;
+  outline: none;
+  margin: 8px 0;
+}
+
+/* ── Shop Grid ── */
+.shop-products { padding: 56px 0 80px; }
+.shop-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+/* ── Grind Guide ── */
+.grind-guide {
+  background: var(--espresso);
+  padding: 80px 40px;
+}
+.grind-guide .section-label { color: var(--gold); }
+.grind-guide .section-title { color: var(--cream); }
+.grind-guide .section-sub { color: rgba(245,237,227,0.5); }
+.grind-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 20px;
+}
+.grind-card {
+  border: 1px solid rgba(201,169,110,0.2);
+  padding: 24px 16px;
+  text-align: center;
+}
+.grind-visual {
+  height: 48px;
+  margin: 0 auto 16px;
+  width: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2px;
+}
+.grind-fine { gap: 1px; }
+.grind-fine::before, .grind-fine::after,
+.grind-medium-fine::before, .grind-medium-fine::after,
+.grind-medium::before, .grind-medium::after,
+.grind-coarse::before, .grind-coarse::after,
+.grind-whole::before { content: ''; }
+
+.grind-fine { background: repeating-linear-gradient(to bottom, rgba(201,169,110,0.5) 0px, rgba(201,169,110,0.5) 1px, transparent 1px, transparent 3px); }
+.grind-medium-fine { background: repeating-linear-gradient(to bottom, rgba(201,169,110,0.5) 0px, rgba(201,169,110,0.5) 2px, transparent 2px, transparent 5px); }
+.grind-medium { background: repeating-linear-gradient(to bottom, rgba(201,169,110,0.5) 0px, rgba(201,169,110,0.5) 3px, transparent 3px, transparent 7px); }
+.grind-coarse { background: repeating-linear-gradient(to bottom, rgba(201,169,110,0.5) 0px, rgba(201,169,110,0.5) 4px, transparent 4px, transparent 10px); }
+.grind-whole { background: radial-gradient(circle at 50% 50%, rgba(201,169,110,0.6) 8px, transparent 8px); }
+
+.grind-card h3 {
+  font-family: var(--font-serif);
+  font-size: 16px;
+  color: var(--cream);
+  margin-bottom: 6px;
+}
+.grind-card p { font-size: 13px; color: rgba(245,237,227,0.45); font-weight: 300; }
+
+@media (max-width: 900px) {
+  .page-header { padding: 48px 24px; }
+  .shop-grid { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+  .grind-guide { padding: 60px 24px; }
+  .filters-inner { padding: 0; }
+  .filter-btn { padding: 14px 14px; font-size: 11px; }
+}
+@media (max-width: 600px) {
+  .shop-grid { grid-template-columns: 1fr; }
+  .grind-grid { grid-template-columns: repeat(3, 1fr); }
+}

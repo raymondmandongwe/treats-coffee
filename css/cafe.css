@@ -1,0 +1,127 @@
+/* ============================================
+   TREAT COFFEE ROASTERS — Café Page CSS
+   ============================================ */
+
+/* ── Hero ── */
+.cafe-hero {
+  background: var(--espresso);
+  padding: 100px 40px;
+  position: relative;
+  overflow: hidden;
+}
+.cafe-hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 80% at 80% 50%, rgba(60,35,20,0.8) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 60% at 10% 20%, rgba(201,169,110,0.06) 0%, transparent 60%);
+}
+.cafe-hero-content { position: relative; z-index: 2; }
+.cafe-hero h1 { color: var(--cream); margin-bottom: 18px; }
+.cafe-hero h1 em { color: var(--gold); font-style: italic; }
+.cafe-hero .hero-sub { color: rgba(245,237,227,0.65); font-weight: 300; margin-bottom: 36px; }
+
+/* ── Info Section ── */
+.cafe-info-section { padding: 72px 0; background: var(--milk); }
+.cafe-info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2px;
+  background: rgba(92,51,23,0.08);
+  border: 1px solid rgba(92,51,23,0.08);
+}
+.cafe-info-card {
+  background: var(--white);
+  padding: 36px 28px;
+}
+.info-icon { font-size: 28px; margin-bottom: 16px; display: block; }
+.cafe-info-card h3 {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  color: var(--espresso);
+  margin-bottom: 18px;
+}
+
+.hours-table { width: 100%; border-collapse: collapse; }
+.hours-table td {
+  padding: 8px 0;
+  font-size: 14px;
+  border-bottom: 1px solid rgba(92,51,23,0.06);
+}
+.hours-table td:first-child { color: var(--walnut); }
+.hours-table td:last-child { text-align: right; font-weight: 500; color: var(--espresso); }
+.closed-row td { color: var(--caramel) !important; font-style: italic; }
+
+.on-bar-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(92,51,23,0.06);
+}
+.on-bar-label {
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--caramel);
+  font-weight: 500;
+}
+.on-bar-name {
+  font-size: 14px;
+  color: var(--espresso);
+  font-family: var(--font-serif);
+  font-style: italic;
+}
+
+/* ── Map ── */
+.map-section { background: var(--espresso); padding: 72px 0 0; }
+.map-section .section-label { color: var(--gold); }
+.map-section .section-title { color: var(--cream); }
+.map-section .section-sub { color: rgba(245,237,227,0.5); }
+.map-section .container { padding-bottom: 40px; }
+.map-embed-area {
+  width: 100%;
+  height: 420px;
+  background: var(--roast);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: 1px solid rgba(201,169,110,0.12);
+}
+.map-embed-area iframe { width: 100%; height: 100%; border: 0; }
+.map-placeholder-inner { text-align: center; }
+
+/* ── Menu ── */
+.menu-section { padding: 80px 0; background: var(--milk); }
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 32px;
+}
+.menu-category { }
+.menu-cat-title {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  color: var(--espresso);
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--gold);
+  margin-bottom: 16px;
+}
+.menu-items { }
+.menu-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  font-size: 14px;
+  border-bottom: 1px solid rgba(92,51,23,0.06);
+}
+.menu-item span:first-child { color: var(--walnut); }
+.menu-item span:last-child { color: var(--espresso); font-weight: 500; flex-shrink: 0; margin-left: 12px; }
+
+@media (max-width: 900px) {
+  .cafe-hero { padding: 72px 24px; }
+  .menu-grid { grid-template-columns: 1fr; }
+  .map-embed-area { height: 300px; }
+}

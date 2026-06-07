@@ -1,0 +1,167 @@
+/* ============================================
+   TREAT COFFEE ROASTERS — Cart CSS
+   ============================================ */
+
+.cart-header {
+  background: var(--espresso);
+  padding: 56px 40px;
+}
+.cart-header h1 { color: var(--cream); }
+
+.cart-section { padding: 56px 0 80px; }
+
+.cart-layout {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 48px;
+  align-items: start;
+}
+
+/* ── Cart Table Header ── */
+.cart-items-header {
+  display: grid;
+  grid-template-columns: 1fr 120px 120px;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(92,51,23,0.12);
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--caramel);
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+/* ── Cart Item ── */
+.cart-item {
+  display: grid;
+  grid-template-columns: 1fr 120px 120px;
+  align-items: center;
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(92,51,23,0.07);
+}
+.cart-item-name {
+  font-family: var(--font-serif);
+  font-size: 16px;
+  color: var(--espresso);
+  margin-bottom: 4px;
+}
+.cart-item-weight { font-size: 12px; color: var(--caramel); }
+
+.cart-item-qty {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.qty-btn {
+  width: 28px;
+  height: 28px;
+  border: 1px solid rgba(92,51,23,0.2);
+  background: none;
+  color: var(--walnut);
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--transition);
+}
+.qty-btn:hover { background: var(--gray-light); }
+.qty-num {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--espresso);
+  min-width: 20px;
+  text-align: center;
+}
+
+.cart-item-price {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--espresso);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.remove-btn {
+  color: var(--caramel);
+  font-size: 20px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  opacity: 0.5;
+  transition: opacity var(--transition);
+  line-height: 1;
+}
+.remove-btn:hover { opacity: 1; color: #c00; }
+
+/* ── Empty Cart ── */
+.empty-cart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 0;
+  text-align: center;
+}
+.empty-cart p { font-size: 16px; color: var(--caramel); }
+
+/* ── Summary ── */
+.cart-summary {
+  background: var(--white);
+  border: 1px solid rgba(92,51,23,0.1);
+  padding: 28px;
+  position: sticky;
+  top: 100px;
+}
+.summary-title {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  color: var(--espresso);
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(92,51,23,0.1);
+  margin-bottom: 16px;
+}
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  font-size: 14px;
+  color: var(--walnut);
+}
+.summary-divider {
+  height: 1px;
+  background: rgba(92,51,23,0.1);
+  margin: 12px 0;
+}
+.summary-total {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--espresso);
+}
+
+/* ── Free Shipping Bar ── */
+.free-shipping-bar { margin-top: 16px; }
+.free-shipping-bar p { font-size: 12px; color: var(--caramel); margin-bottom: 8px; }
+.fsb-track {
+  height: 4px;
+  background: rgba(92,51,23,0.1);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.fsb-fill {
+  height: 100%;
+  background: var(--gold);
+  border-radius: 2px;
+  transition: width 0.4s ease;
+}
+
+@media (max-width: 900px) {
+  .cart-header { padding: 48px 24px; }
+  .cart-layout { grid-template-columns: 1fr; }
+  .cart-summary { position: static; }
+}
+@media (max-width: 600px) {
+  .cart-item { grid-template-columns: 1fr; gap: 12px; }
+  .cart-items-header { display: none; }
+}

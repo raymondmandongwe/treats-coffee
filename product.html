@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product — Treat Coffee Roasters</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/product.css">
+</head>
+<body>
+  <div id="shippingBar"></div>
+  <div id="siteNav"></div>
+
+  <main id="productMain">
+    <div class="container" style="padding-top:60px;padding-bottom:80px;">
+      <a href="shop.html" class="back-link">← Back to Shop</a>
+      <div class="product-detail" id="productDetail">
+        <p style="text-align:center;padding:80px 0;color:var(--caramel);">Loading product...</p>
+      </div>
+    </div>
+
+    <!-- ── Related Products ── -->
+    <section style="background:var(--gray-light);padding:64px 0;">
+      <div class="container">
+        <div class="section-label">You might also like</div>
+        <h2 class="section-title" style="margin-bottom:32px;">More from the Roaster</h2>
+        <div class="products-grid" id="relatedProducts" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:24px;"></div>
+      </div>
+    </section>
+  </main>
+
+  <div id="siteFooter"></div>
+
+  <script src="js/products.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/components.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const params = new URLSearchParams(window.location.search);
+      const id = params.get('id');
+      const product = Products.find(p => p.id === id);
+
+      if (!product) {
+        document.getElementById('productDetail').innerHTML = `
+          <p style="text-align:center;padding:80px 0;">Product not found. <a href="shop.html" style="color:var(--walnut);text-decoration:underline;">Browse the shop</a></p>`;
+        return;
+      }
+
+      document.title = `${product.name} — Treat Coffee Roasters`;
+
+      document.getElementById('productDetail').innerHTML = `
+        <div class="product-detail-grid">
+          <div class="product-detail-image" style="background:${product.bg}">
+            <span aria-hidden="true" class="product-big-icon">${product.icon}</span>
+            ${product.tag ? `<span class="tag tag-${product.tag}" style="position:absolute;top:20px;left:20px;">${getTagLabel(product.tag)}</span>` : ''}
+            <div class="product-roast-badge" style="position:absolute;bottom:20px;right:20px;">${product.roast.charAt(0).toUpperCase()+product.roast.slice(1)} Roast</div>
+          </div>
+          <div class="product-detail-info">
+            <div class="section-label">${product.origin}</div>
+            <h1 style="font-size:clamp(28px,4vw,40px);margin-bottom:16px;">${product.name}</h1>
+            ${roastDots(product.roastLevel)}
+            <p style="font-size:15px;line-height:1.8;margin-bottom:28px;color:var(--walnut);font-weight:300;">${product.description}</p>
+
+            <div class="product-meta-grid">
+              <div class="meta-item">
+                <span class="meta-label">Flavour Notes</span>
+                <span class="meta-value">${product.notes.join(', ')}</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-label">Best For</span>
+                <span class="meta-value">${product.bestFor.join(', ')}</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-label">Roast</span>
+                <span class="meta-value" style="text-transform:capitalize;">${product.roast}</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-label">Origin</span>
+                <span class="meta-value">${product.origin}</span>
+              </div>
+            </div>
+
+            <div class="product-order-row">
+              <div>
+                <div class="product-price" style="font-size:28px;margin-bottom:4px;">R${product.price}</div>
+                <div style="font-size:12px;color:var(--caramel);">${product.weight}</div>
+              </div>
+              <div class="grind-select-group">
+                <label for="grindSelect" style="font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--caramel);display:block;margin-bottom:6px;">Grind</label>
+                <select id="grindSelect" aria-label="Select grind size">
+                  <option>Whole Bean</option>
+                  <option>Fine (Espresso)</option>
+                  <option>Medium-Fine (AeroPress)</option>
+                  <option>Medium (Pour-over)</option>
+                  <option>Coarse (French Press)</option>
+                </select>
+              </div>
+              <button class="btn btn-gold" onclick="Cart.add('${product.name}', ${product.price})" style="align-self:flex-end;">Add to Cart</button>
+            </div>
+
+            <div class="delivery-note">
+              <span>🚚</span>
+              <span>Free delivery over R600 · R99 nationwide · Dispatched Mon, Wed &amp; Fri</span>
+            </div>
+          </div>
+        </div>`;
+
+      // Related products
+      const related = Products.filter(p => p.id !== id).slice(0, 3);
+      document.getElementById('relatedProducts').innerHTML = related.map(p => renderProductCard(p)).join('');
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,145 @@
+/* ============================================
+   TREAT COFFEE ROASTERS — Wholesale CSS
+   ============================================ */
+
+.ws-hero {
+  background: var(--charcoal);
+  padding: 100px 40px;
+  position: relative;
+  overflow: hidden;
+}
+.ws-hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 50% 70% at 90% 50%, rgba(201,169,110,0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 30% 50% at 5% 80%, rgba(44,26,14,0.8) 0%, transparent 60%);
+}
+.ws-hero-content { position: relative; z-index: 2; }
+.ws-hero h1 { color: var(--cream); margin-bottom: 18px; }
+.ws-hero h1 em { color: var(--gold); font-style: italic; }
+.ws-hero .hero-sub { color: rgba(245,237,227,0.6); font-weight: 300; margin-bottom: 36px; }
+
+/* ── Benefits ── */
+.ws-benefits { padding: 80px 0; background: var(--milk); }
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2px;
+  background: rgba(92,51,23,0.08);
+  border: 1px solid rgba(92,51,23,0.08);
+}
+.benefit-card {
+  background: var(--white);
+  padding: 32px 28px;
+  transition: background var(--transition);
+}
+.benefit-card:hover { background: var(--gray-light); }
+.benefit-icon { font-size: 28px; margin-bottom: 14px; display: block; }
+.benefit-card h3 { font-size: 18px; color: var(--espresso); margin-bottom: 10px; }
+.benefit-card p { font-size: 14px; font-weight: 300; line-height: 1.7; }
+
+/* ── Who ── */
+.ws-who {
+  background: var(--espresso);
+  padding: 80px 40px;
+}
+.who-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+.who-card {
+  border: 1px solid rgba(201,169,110,0.15);
+  padding: 28px 22px;
+  transition: border-color var(--transition), background var(--transition);
+}
+.who-card:hover { border-color: var(--gold); background: rgba(201,169,110,0.05); }
+.who-icon { font-size: 28px; margin-bottom: 14px; display: block; }
+.who-card h3 { font-size: 18px; color: var(--cream); margin-bottom: 10px; }
+.who-card p { font-size: 13px; color: rgba(245,237,227,0.5); font-weight: 300; line-height: 1.7; }
+
+/* ── Brewed At ── */
+.ws-brewed { padding: 64px 0; background: var(--gray-light); }
+.brewed-list-large {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+}
+.brewed-name {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  color: var(--walnut);
+  opacity: 0.5;
+  font-style: italic;
+  padding: 16px 32px;
+  border-right: 1px solid rgba(92,51,23,0.12);
+}
+.brewed-name:last-child { border-right: none; }
+
+/* ── Form ── */
+.ws-form-section {
+  background: var(--roast);
+  padding: 80px 40px;
+}
+.ws-form-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: start;
+}
+.ws-promise { display: flex; flex-direction: column; gap: 12px; }
+.promise-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: rgba(245,237,227,0.7);
+}
+.promise-item span { color: var(--gold); font-weight: 700; }
+
+/* Form Styles */
+.ws-form { display: flex; flex-direction: column; gap: 18px; }
+.form-group { display: flex; flex-direction: column; gap: 6px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-group label {
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: rgba(245,237,227,0.55);
+  font-weight: 500;
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  padding: 13px 16px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(201,169,110,0.2);
+  color: var(--cream);
+  outline: none;
+  transition: border-color var(--transition);
+  border-radius: 0;
+  -webkit-appearance: none;
+}
+.form-group input::placeholder,
+.form-group textarea::placeholder { color: rgba(245,237,227,0.25); }
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus { border-color: var(--gold); }
+.form-group select option { background: var(--roast); color: var(--cream); }
+.form-group textarea { resize: vertical; min-height: 100px; }
+
+@media (max-width: 900px) {
+  .ws-hero { padding: 72px 24px; }
+  .ws-form-inner { grid-template-columns: 1fr; gap: 40px; }
+  .ws-who { padding: 60px 24px; }
+  .brewed-name { font-size: 18px; padding: 12px 20px; }
+}
+@media (max-width: 600px) {
+  .benefits-grid { grid-template-columns: 1fr; }
+  .who-grid { grid-template-columns: 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+  .ws-form-section { padding: 60px 24px; }
+}
